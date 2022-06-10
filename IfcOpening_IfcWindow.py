@@ -88,9 +88,11 @@ class FeatureProcessor(object):
         s = ifcopenshell.geom.settings()
         s.set(s.DISABLE_TRIANGULATION, True)
         s.set(s.USE_BREP_DATA, True)
-
+        
+        schema = ifcfile.schema
         geo = feature.getGeometry()
-        #w = ifcopenshell.geom.create_shape(s, geo)
+        w = ifcopenshell.geom.serialise(schema, "IfcWindow").geo
+        
         
       
    
